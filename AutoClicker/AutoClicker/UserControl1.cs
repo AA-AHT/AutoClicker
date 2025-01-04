@@ -92,5 +92,33 @@ namespace AutoClicker
 		{
 			mouseHookID = Mouse.SetHook(HookCallback);
 		}
+
+		private void upButton_Click(object sender, EventArgs e)
+		{
+			if (this.Parent == null || this.Parent.GetType() != typeof(FlowLayoutPanel))
+				return;
+
+			int index = Parent.Controls.GetChildIndex(this);
+
+
+			Parent.Controls.SetChildIndex(
+				this,
+				index > 0 ? index - 1 : index
+			);
+
+		}
+
+		private void downButton_Click(object sender, EventArgs e)
+		{
+			if (this.Parent == null || this.Parent.GetType() != typeof(FlowLayoutPanel))
+				return;
+
+			int index = Parent.Controls.GetChildIndex(this);
+
+			Parent.Controls.SetChildIndex(
+				this,
+				index < Parent.Controls.Count-1 ? index + 1 : index
+			);
+		}
 	}
 }

@@ -35,6 +35,8 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.deleteButton = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.upButton = new System.Windows.Forms.Button();
+			this.downButton = new System.Windows.Forms.Button();
 			this.flowLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.waitValue)).BeginInit();
 			this.SuspendLayout();
@@ -44,10 +46,12 @@
 			this.flowLayoutPanel1.Controls.Add(this.label1);
 			this.flowLayoutPanel1.Controls.Add(this.waitValue);
 			this.flowLayoutPanel1.Controls.Add(this.label2);
+			this.flowLayoutPanel1.Controls.Add(this.downButton);
+			this.flowLayoutPanel1.Controls.Add(this.upButton);
 			this.flowLayoutPanel1.Controls.Add(this.deleteButton);
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 0);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(202, 30);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(244, 30);
 			this.flowLayoutPanel1.TabIndex = 0;
 			// 
 			// label1
@@ -92,7 +96,7 @@
 			// 
 			this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.deleteButton.ForeColor = System.Drawing.Color.Red;
-			this.deleteButton.Location = new System.Drawing.Point(174, 3);
+			this.deleteButton.Location = new System.Drawing.Point(220, 3);
 			this.deleteButton.Name = "deleteButton";
 			this.deleteButton.Size = new System.Drawing.Size(16, 23);
 			this.deleteButton.TabIndex = 10;
@@ -101,13 +105,35 @@
 			this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
 			this.deleteButton.MouseHover += new System.EventHandler(this.deleteButton_MouseHover);
 			// 
+			// upButton
+			// 
+			this.upButton.Image = global::AutoClicker.Properties.Resources.arrow_Up_16xLG;
+			this.upButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.upButton.Location = new System.Drawing.Point(197, 3);
+			this.upButton.Name = "upButton";
+			this.upButton.Size = new System.Drawing.Size(17, 23);
+			this.upButton.TabIndex = 14;
+			this.upButton.UseVisualStyleBackColor = true;
+			this.upButton.Click += new System.EventHandler(this.upButton_Click);
+			// 
+			// downButton
+			// 
+			this.downButton.Image = global::AutoClicker.Properties.Resources.arrow_Down_16xLG;
+			this.downButton.Location = new System.Drawing.Point(174, 3);
+			this.downButton.Name = "downButton";
+			this.downButton.Size = new System.Drawing.Size(17, 23);
+			this.downButton.TabIndex = 15;
+			this.downButton.UseVisualStyleBackColor = true;
+			this.downButton.Click += new System.EventHandler(this.downButton_Click);
+			// 
 			// UserControl2
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.Controls.Add(this.flowLayoutPanel1);
 			this.Name = "UserControl2";
-			this.Size = new System.Drawing.Size(208, 33);
+			this.Size = new System.Drawing.Size(247, 31);
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.flowLayoutPanel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.waitValue)).EndInit();
@@ -122,5 +148,7 @@
 		public System.Windows.Forms.NumericUpDown waitValue;
 		private System.Windows.Forms.Button deleteButton;
 		private System.Windows.Forms.ToolTip toolTip1;
+		public System.Windows.Forms.Button downButton;
+		public System.Windows.Forms.Button upButton;
 	}
 }

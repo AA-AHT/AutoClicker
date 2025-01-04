@@ -39,7 +39,9 @@
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
+			this.downButton = new System.Windows.Forms.Button();
 			this.deleteButton = new System.Windows.Forms.Button();
+			this.upButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.yPos)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.xPos)).BeginInit();
 			this.flowLayoutPanel1.SuspendLayout();
@@ -134,10 +136,12 @@
 			this.flowLayoutPanel1.Controls.Add(this.radioButton2);
 			this.flowLayoutPanel1.Controls.Add(this.radioButton3);
 			this.flowLayoutPanel1.Controls.Add(this.selectButton);
+			this.flowLayoutPanel1.Controls.Add(this.upButton);
+			this.flowLayoutPanel1.Controls.Add(this.downButton);
 			this.flowLayoutPanel1.Controls.Add(this.deleteButton);
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 1);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(413, 30);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(456, 30);
 			this.flowLayoutPanel1.TabIndex = 2;
 			this.flowLayoutPanel1.WrapContents = false;
 			// 
@@ -163,11 +167,21 @@
 			this.label2.Text = "Y";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			// 
+			// downButton
+			// 
+			this.downButton.Image = global::AutoClicker.Properties.Resources.arrow_Down_16xLG;
+			this.downButton.Location = new System.Drawing.Point(407, 3);
+			this.downButton.Name = "downButton";
+			this.downButton.Size = new System.Drawing.Size(17, 23);
+			this.downButton.TabIndex = 13;
+			this.downButton.UseVisualStyleBackColor = true;
+			this.downButton.Click += new System.EventHandler(this.downButton_Click);
+			// 
 			// deleteButton
 			// 
 			this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.deleteButton.ForeColor = System.Drawing.Color.Red;
-			this.deleteButton.Location = new System.Drawing.Point(384, 3);
+			this.deleteButton.Location = new System.Drawing.Point(430, 3);
 			this.deleteButton.Name = "deleteButton";
 			this.deleteButton.Size = new System.Drawing.Size(16, 23);
 			this.deleteButton.TabIndex = 11;
@@ -176,14 +190,25 @@
 			this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
 			this.deleteButton.MouseHover += new System.EventHandler(this.deleteButton_MouseHover);
 			// 
+			// upButton
+			// 
+			this.upButton.Image = global::AutoClicker.Properties.Resources.arrow_Up_16xLG;
+			this.upButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.upButton.Location = new System.Drawing.Point(384, 3);
+			this.upButton.Name = "upButton";
+			this.upButton.Size = new System.Drawing.Size(17, 23);
+			this.upButton.TabIndex = 12;
+			this.upButton.UseVisualStyleBackColor = true;
+			this.upButton.Click += new System.EventHandler(this.upButton_Click);
+			// 
 			// UserControl1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.Controls.Add(this.flowLayoutPanel1);
-			this.Margin = new System.Windows.Forms.Padding(0);
 			this.Name = "UserControl1";
-			this.Size = new System.Drawing.Size(416, 33);
+			this.Size = new System.Drawing.Size(462, 31);
 			((System.ComponentModel.ISupportInitialize)(this.yPos)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.xPos)).EndInit();
 			this.flowLayoutPanel1.ResumeLayout(false);
@@ -204,5 +229,7 @@
 		public System.Windows.Forms.RadioButton radioButton1;
 		public System.Windows.Forms.NumericUpDown xPos;
 		private System.Windows.Forms.Button deleteButton;
+		public System.Windows.Forms.Button upButton;
+		public System.Windows.Forms.Button downButton;
 	}
 }

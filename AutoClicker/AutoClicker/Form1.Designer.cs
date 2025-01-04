@@ -211,11 +211,11 @@
 		private System.Windows.Forms.Button addClick;
 		private System.Windows.Forms.Button addWait;
 		private System.Windows.Forms.ToolTip toolTip1;
-		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.CheckBox readyCheckbox;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+		public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 	}
 }
 
