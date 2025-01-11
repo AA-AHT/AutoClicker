@@ -70,6 +70,7 @@ namespace AutoClicker
 					clicker.processName.Add("Mouse Click");
 					clicker.clickCoordianete.Add(pnt);
 					clicker.clickButton.Add(((UserControl1)i).buttonChecked);
+					clicker.clickDouble.Add(((UserControl1)i).doubleCheckBox.Checked);
 
 					//MessageBox.Show($"{((UserControl1)i).buttonChecked} button click: X:{xPos} Y:{yPos}");
 				}
@@ -107,6 +108,7 @@ namespace AutoClicker
 			clickerThread?.Abort();
 			clicker = null;
 			Keyboard.UnHook(keybHookID);
+			keybHookID = IntPtr.Zero;
 		}
 		
 
@@ -278,6 +280,7 @@ namespace AutoClicker
 		public List<int> waitMillisecond = new List<int>();
 		public List<Point> clickCoordianete = new List<Point>();
 		public List<string> clickButton = new List<string>();
+		public List<bool> clickDouble = new List<bool>();
 		public bool isClicking = false;
 		public void ClickThread()
 		{
@@ -292,7 +295,8 @@ namespace AutoClicker
 							case "Mouse Click":
 								Mouse.DoClick(clickCoordianete.ElementAt(j).X,
 										clickCoordianete.ElementAt(j).Y,
-										clickButton.ElementAt(j));
+										clickButton.ElementAt(j),
+										clickDouble.ElementAt(j));
 								j++;
 								break;
 							case "Wait":
@@ -304,7 +308,7 @@ namespace AutoClicker
 				}
 				else
 				{
-					Thread.Sleep(10);
+					Thread.Sleep(1);
 				}
 			}
 		}
@@ -316,33 +320,35 @@ namespace AutoClicker
 	{
 		public static IntPtr SetHook(WinAPI.LowLevelProc proc)
 		{
-			using (Process curProcess = Process.GetCurrentProcess())
-			using (ProcessModule curModule = curProcess.MainModule)
-			{
-				return WinAPI.SetWindowsHookEx(WH_MOUSE_LL, proc, WinAPI.GetModuleHandle(curModule.ModuleName), 0);
-			}
+			return WinAPI.SetWindowsHookEx(WH_MOUSE_LL, proc, IntPtr.Zero, 0);
 		}
 		public static bool UnHook(IntPtr hhk)
 		{
 			return WinAPI.UnhookWindowsHookEx(hhk);
 		}
-		public static void DoClick(int dx, int dy, string button)
+		public static void DoClick(int dx, int dy, string button, bool _double)
 		{
-			WinAPI.SetCursorPos(dx, dy);
-			switch (button)
+			if(WinAPI.SetCursorPos(dx, dy) == false)
 			{
-				case "Left":
-					WinAPI.mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-					WinAPI.mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-					break;
-				case "Mid":
-					WinAPI.mouse_event(MOUSEEVENTF_MIDDLEDOWN, 0, 0, 0, 0);
-					WinAPI.mouse_event(MOUSEEVENTF_MIDDLEUP, 0, 0, 0, 0);
-					break;
-				case "Right":
-					WinAPI.mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0);
-					WinAPI.mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
-					break;
+				MessageBox.Show("Error: " + Marshal.GetLastWin32Error());
+			}
+			for (int i = _double?1:0; i >= 0; i--)
+			{
+				switch (button)
+				{
+					case "Left":
+						WinAPI.mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_ABSOLUTE, dx, dy, 0, 0);
+						WinAPI.mouse_event(MOUSEEVENTF_LEFTUP | MOUSEEVENTF_ABSOLUTE, dx, dy, 0, 0);
+						break;
+					case "Mid":
+						WinAPI.mouse_event(MOUSEEVENTF_MIDDLEDOWN | MOUSEEVENTF_ABSOLUTE, dx, dy, 0, 0);
+						WinAPI.mouse_event(MOUSEEVENTF_MIDDLEUP | MOUSEEVENTF_ABSOLUTE, dx, dy, 0, 0);
+						break;
+					case "Right":
+						WinAPI.mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_ABSOLUTE, dx, dy, 0, 0);
+						WinAPI.mouse_event(MOUSEEVENTF_RIGHTUP | MOUSEEVENTF_ABSOLUTE, dx, dy, 0, 0);
+						break;
+				}
 			}
 		}
 
@@ -390,11 +396,7 @@ namespace AutoClicker
 	{
 		public static IntPtr SetHook(WinAPI.LowLevelProc proc)
 		{
-			using (Process curProcess = Process.GetCurrentProcess())
-			using (ProcessModule curModule = curProcess.MainModule)
-			{
-				return WinAPI.SetWindowsHookEx(WH_KEYBOARD_LL, proc, WinAPI.GetModuleHandle(curModule.ModuleName), 0);
-			}
+			return WinAPI.SetWindowsHookEx(WH_KEYBOARD_LL, proc, IntPtr.Zero, 0);
 		}
 
 		public static bool UnHook(IntPtr hhk)

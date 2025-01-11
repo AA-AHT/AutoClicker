@@ -30,6 +30,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -57,7 +58,7 @@
             this.toolStripStatusLabel2});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 419);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(624, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(704, 22);
 			this.statusStrip1.TabIndex = 0;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
@@ -80,7 +81,7 @@
             this.aboutToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(624, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(704, 24);
 			this.menuStrip1.TabIndex = 1;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -130,7 +131,7 @@
 			// 
 			// addClick
 			// 
-			this.addClick.Location = new System.Drawing.Point(517, 341);
+			this.addClick.Location = new System.Drawing.Point(597, 337);
 			this.addClick.Name = "addClick";
 			this.addClick.Size = new System.Drawing.Size(95, 23);
 			this.addClick.TabIndex = 2;
@@ -140,7 +141,7 @@
 			// 
 			// addWait
 			// 
-			this.addWait.Location = new System.Drawing.Point(537, 370);
+			this.addWait.Location = new System.Drawing.Point(617, 366);
 			this.addWait.Name = "addWait";
 			this.addWait.Size = new System.Drawing.Size(75, 23);
 			this.addWait.TabIndex = 3;
@@ -154,19 +155,19 @@
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 28);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(482, 388);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(578, 388);
 			this.flowLayoutPanel1.TabIndex = 4;
 			this.flowLayoutPanel1.WrapContents = false;
 			// 
 			// timer1
 			// 
-			this.timer1.Interval = 50;
+			this.timer1.Interval = 20;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
 			// readyCheckbox
 			// 
 			this.readyCheckbox.AutoSize = true;
-			this.readyCheckbox.Location = new System.Drawing.Point(555, 399);
+			this.readyCheckbox.Location = new System.Drawing.Point(635, 395);
 			this.readyCheckbox.Name = "readyCheckbox";
 			this.readyCheckbox.Size = new System.Drawing.Size(57, 17);
 			this.readyCheckbox.TabIndex = 12;
@@ -179,13 +180,14 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(624, 441);
+			this.ClientSize = new System.Drawing.Size(704, 441);
 			this.Controls.Add(this.readyCheckbox);
 			this.Controls.Add(this.flowLayoutPanel1);
 			this.Controls.Add(this.addWait);
 			this.Controls.Add(this.addClick);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.menuStrip1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "Form1";
 			this.Text = "Auto Clicker";

@@ -39,6 +39,11 @@ namespace AutoClicker
 			toolTip1.SetToolTip(radioButton1, "Left button");
 		}
 
+		private void doubleCheckBox_MouseHover(object sender, EventArgs e)
+		{
+			toolTip1.SetToolTip(doubleCheckBox, "Double click");
+		}
+
 		private void AllCheckBoxes_CheckedChanged(object sender, EventArgs e)
 		{
 			buttonChecked = ((RadioButton)sender).Text;
@@ -69,18 +74,21 @@ namespace AutoClicker
 						yPos.Value = mouseInfo.pt.y;
 						radioButton1.Checked = true;
 						Mouse.UnHook(mouseHookID);
+						mouseHookID = IntPtr.Zero;
 						break;
 					case Mouse.WM_MBUTTONDOWN:
 						xPos.Value = mouseInfo.pt.x;
 						yPos.Value = mouseInfo.pt.y;
 						radioButton2.Checked = true;
 						Mouse.UnHook(mouseHookID);
+						mouseHookID = IntPtr.Zero;
 						break;
 					case Mouse.WM_RBUTTONDOWN:
 						xPos.Value = mouseInfo.pt.x;
 						yPos.Value = mouseInfo.pt.y;
 						radioButton3.Checked = true;
 						Mouse.UnHook(mouseHookID);
+						mouseHookID = IntPtr.Zero;
 						break;
 				}
 				
@@ -120,5 +128,7 @@ namespace AutoClicker
 				index < Parent.Controls.Count-1 ? index + 1 : index
 			);
 		}
+
+		
 	}
 }

@@ -33,10 +33,10 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.waitValue = new System.Windows.Forms.NumericUpDown();
 			this.label2 = new System.Windows.Forms.Label();
+			this.downButton = new System.Windows.Forms.Button();
+			this.upButton = new System.Windows.Forms.Button();
 			this.deleteButton = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.upButton = new System.Windows.Forms.Button();
-			this.downButton = new System.Windows.Forms.Button();
 			this.flowLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.waitValue)).BeginInit();
 			this.SuspendLayout();
@@ -56,8 +56,9 @@
 			// 
 			// label1
 			// 
+			this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(3, 0);
+			this.label1.Location = new System.Drawing.Point(3, 8);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(29, 13);
 			this.label1.TabIndex = 0;
@@ -65,6 +66,7 @@
 			// 
 			// waitValue
 			// 
+			this.waitValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.waitValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.waitValue.CausesValidation = false;
 			this.waitValue.Increment = new decimal(new int[] {
@@ -72,7 +74,7 @@
             0,
             0,
             0});
-			this.waitValue.Location = new System.Drawing.Point(38, 3);
+			this.waitValue.Location = new System.Drawing.Point(38, 6);
 			this.waitValue.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -84,16 +86,41 @@
 			// 
 			// label2
 			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(110, 0);
+			this.label2.Location = new System.Drawing.Point(110, 8);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(58, 13);
 			this.label2.TabIndex = 2;
 			this.label2.Text = "millisecond";
 			this.label2.MouseHover += new System.EventHandler(this.label2_MouseHover);
 			// 
+			// downButton
+			// 
+			this.downButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.downButton.Image = global::AutoClicker.Properties.Resources.arrow_Down_16xLG;
+			this.downButton.Location = new System.Drawing.Point(174, 3);
+			this.downButton.Name = "downButton";
+			this.downButton.Size = new System.Drawing.Size(17, 23);
+			this.downButton.TabIndex = 15;
+			this.downButton.UseVisualStyleBackColor = true;
+			this.downButton.Click += new System.EventHandler(this.downButton_Click);
+			// 
+			// upButton
+			// 
+			this.upButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.upButton.Image = global::AutoClicker.Properties.Resources.arrow_Up_16xLG;
+			this.upButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.upButton.Location = new System.Drawing.Point(197, 3);
+			this.upButton.Name = "upButton";
+			this.upButton.Size = new System.Drawing.Size(17, 23);
+			this.upButton.TabIndex = 14;
+			this.upButton.UseVisualStyleBackColor = true;
+			this.upButton.Click += new System.EventHandler(this.upButton_Click);
+			// 
 			// deleteButton
 			// 
+			this.deleteButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.deleteButton.ForeColor = System.Drawing.Color.Red;
 			this.deleteButton.Location = new System.Drawing.Point(220, 3);
@@ -104,27 +131,6 @@
 			this.deleteButton.UseVisualStyleBackColor = true;
 			this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
 			this.deleteButton.MouseHover += new System.EventHandler(this.deleteButton_MouseHover);
-			// 
-			// upButton
-			// 
-			this.upButton.Image = global::AutoClicker.Properties.Resources.arrow_Up_16xLG;
-			this.upButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.upButton.Location = new System.Drawing.Point(197, 3);
-			this.upButton.Name = "upButton";
-			this.upButton.Size = new System.Drawing.Size(17, 23);
-			this.upButton.TabIndex = 14;
-			this.upButton.UseVisualStyleBackColor = true;
-			this.upButton.Click += new System.EventHandler(this.upButton_Click);
-			// 
-			// downButton
-			// 
-			this.downButton.Image = global::AutoClicker.Properties.Resources.arrow_Down_16xLG;
-			this.downButton.Location = new System.Drawing.Point(174, 3);
-			this.downButton.Name = "downButton";
-			this.downButton.Size = new System.Drawing.Size(17, 23);
-			this.downButton.TabIndex = 15;
-			this.downButton.UseVisualStyleBackColor = true;
-			this.downButton.Click += new System.EventHandler(this.downButton_Click);
 			// 
 			// UserControl2
 			// 
